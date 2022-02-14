@@ -1,0 +1,9 @@
+maven underneath   =    npm underneath
+pom.xml            =    package.json
+
+
+
+
+meta-data          =    meta-data
+dependencies       =    dependencies
+build steps        =    scripts
