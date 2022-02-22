@@ -18,6 +18,7 @@ const beersArray = [
     }
 ];
 
+let CURRENT_ID = 2;
 
 //GET beers
 app.get("/beers", (req, res) => {
@@ -34,8 +35,10 @@ app.get("/beers/:id", (req, res) => {
 
 //POST a beer
 app.post("/beers", (req, res) => {
-    beersArray.push(req.body);
-    res.send(req.body);
+    const beerToCreate = req.body;
+    beerToCreate.id = ++CURRENT_ID;
+    beersArray.push(beerToCreate);
+    res.send({data: beerToCreate});
 
 });
 
@@ -72,6 +75,9 @@ app.patch("/beers/:id", (req, res) => {
     })
     res.send(beersArray);
 })
+
+//Better patch!! Spread the found beer into the beertoupdatewith but lock the id from the original found beer
+// const updatedBeer = {... foundBeer, ...beerToUpdateWith, id: foundBeer.id};
 
 
 

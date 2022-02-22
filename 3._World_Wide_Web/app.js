@@ -1,12 +1,18 @@
 const express = require("express");
 const app = express();
 
+app.use(express.static("public"));
+
+
 
 app.get("/", (req, res) => {
-    res.send(`"<h1>Welcome to my website</h1>
-    <h2>Take a look</h2>"`)
+    res.sendFile(__dirname + "/public/frontpage/frontpage.html")
 });
 
+
+app.get("/welcome", (req, res) => {
+    res.sendFile(__dirname + "/public/welcome.html")
+});
 console.log(__dirname);
 
 
