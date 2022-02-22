@@ -13,6 +13,18 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send({ message: "we did it!" });
 }); 
+        
+
+app.get("/clientgreeting/:name", (req, res) => {
+    res.send({ greeting: `hello there, ${req.params.name}`});
+});
+
+//Kangaroo facts
+//url kangaroofacts?cankick=true
+app.get("/kangaroofacts", (req, res) => {
+    res.send(req.query);
+})
+
 
 app.get("/welcome", (req, res) => {
     res.send({ message: "welcome" });
@@ -24,5 +36,12 @@ app.post("/mirror", (req, res) => {
 
 });
 
-app.listen(8080);
+app.listen(8080, () => {
+    console.log("server is running on port", 8080);
+});
 
+
+
+// How can i send data with a get request???
+// Path variable        url:/1
+// query string         url:/kangaroofacts?cankick=true

@@ -21,13 +21,14 @@ const beersArray = [
 
 //GET beers
 app.get("/beers", (req, res) => {
-    res.send({beersArray});
+    res.send({data: beersArray});
 }); 
 
 
 //GET Beer by ID
 app.get("/beers/:id", (req, res) => {
     res.send(beersArray.find(beer => beer.id === parseInt(req.params.id)));
+    // foundBeer ? res.send({data: foundBeer }): res.status(404).send({});
 }); 
 
 
@@ -35,6 +36,7 @@ app.get("/beers/:id", (req, res) => {
 app.post("/beers", (req, res) => {
     beersArray.push(req.body);
     res.send(req.body);
+
 });
 
 
