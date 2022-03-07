@@ -1,0 +1,57 @@
+<div class="div">
+<h1>Code Snippets I might find useful in the future</h1>
+    <h3>Instansiate express</h3>
+<pre>
+<code>
+    const express = require("express");
+</code>
+</pre>
+
+<h3>Puts an express application inside ur app.</h3>
+<pre>
+<code>
+    const app = express();
+</code>
+</pre>
+
+<h3>Server Side Rendering to allow the applicaton to use the public folder.</h3>
+<pre>
+<code>
+    app.use(express.static("public"));
+</code>
+</pre>
+
+<h3>How to combine multiple html pages to achieve Server Side Rendering</h3>
+<pre>
+<code>
+    // fs stands for FileSystem
+    const fs = require("fs");
+
+    const nav = fs.readFileSync("./public/components/nav/nav.html").toString();
+
+    const footer = fs.readFileSync("./public/components/footer/footer.html".toString());
+
+    const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html").toString();
+
+    const frontpagePage = nav + frontpage + footer;
+</code>
+</pre>
+
+<h3>Basic get request</h3>
+<pre>
+<code>
+    app.get("/", (req, res) => {
+        res.send(frontpagePage);
+    });
+</code>
+</pre>
+
+<h3>Specify what port to run application on and message that states it</h3>
+<pre>
+<code>
+    app.listen(8080, () => {
+        console.log("server is running on", 8080);
+    });
+</code>
+</pre>
+</div>
