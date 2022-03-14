@@ -1,10 +1,9 @@
 <script>
-	
 	import PeopleTable from "./components/Tables/PeopleTable.svelte";
-	
 </script>
 
 <main>
+	<!-- TableHead is imported to TableRow which is then imported to PeopleTable which is then imported to App.svelte. -->
 	<PeopleTable/>
 </main>
 

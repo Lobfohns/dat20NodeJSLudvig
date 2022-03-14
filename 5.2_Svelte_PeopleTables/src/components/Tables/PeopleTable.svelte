@@ -1,4 +1,5 @@
 <script>
+    //Imports faker, remember to also add it in package.json and do "npm install @faker-js/faker --save-dev"
     import { faker } from '@faker-js/faker';
     import TableRow from "./TableRow.svelte";
 
@@ -6,6 +7,8 @@
     
     //Sets names to be korean, cause why not?? :D
     faker.setLocale("ko");
+
+    //Function to create people by using faker
     function createFakePeople(){
         const fakePerson = {
             firstName: faker.name.firstName(),
@@ -16,6 +19,7 @@
         fakePeople.push(fakePerson);
     }
 
+    //Specifys how many people should be created, is set to 5 at the moment
     for (let i = 0; i < 5; i++) {
         createFakePeople();
     }
@@ -23,6 +27,8 @@
 </script>
     
 <h1>Here are some random people with korean names, their job and jobtitle</h1>
+
+<!-- this creates tablerows with the created fake people -->
 <TableRow fakePeople = {fakePeople}/>
 
 
